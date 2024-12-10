@@ -35,7 +35,9 @@ func main() {
 	if response.Found > 0 {
 		fmt.Printf("Found %d breaches for %s:\n", response.Found, email)
 		for _, entry := range response.Result {
-			fmt.Printf("Email: %s, Sources: %s\n", entry.Email, entry.Sources)
+			fmt.Println("Password", entry.Password)
+			fmt.Println("SHA1", entry.Sha1)
+			fmt.Println("Source", entry.Sources)
 		}
 	} else {
 		fmt.Printf("No breaches found for %s.\n", email)
