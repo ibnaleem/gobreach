@@ -34,12 +34,12 @@ func NewBreachDirectoryClient(apiKey string) (*BreachDirectoryClient, error) {
 	}, nil
 }
 
-func (client *BreachDirectoryClient) SearchEmail(email string) (*BreachDirectoryResponse, error) {
-	if email == "" {
-		return nil, fmt.Errorf("email cannot be empty")
+func (client *BreachDirectoryClient) Search(term string) (*BreachDirectoryResponse, error) {
+	if term == "" {
+		return nil, fmt.Errorf("term cannot be empty; provide a username or email.")
 	}
 
-	url := "https://breachdirectory.p.rapidapi.com/?func=auto&term=" + email
+	url := "https://breachdirectory.p.rapidapi.com/?func=auto&term=" + term
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
